@@ -34,11 +34,16 @@ const createList = (inputValue) => {
 const addList = () => {
   // 이벤트 처리할 때는 보통 onAdd 식으로 사용
   const inputValue = input.value;
+  if (!inputValue) {
+    input.focus();
+    return;
+  }
 
   const newList = createList(inputValue);
   items.appendChild(newList);
 
   input.value = "";
+  input.focus();
 };
 
 plusButton.addEventListener("click", addList); // mouse click
