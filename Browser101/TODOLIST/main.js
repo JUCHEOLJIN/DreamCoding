@@ -4,30 +4,20 @@ const plusButton = document.querySelector(".footer-button");
 const items = document.querySelector(".items");
 const input = document.querySelector(".footer-input");
 
+let id = 0;
 const createList = (inputValue) => {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item-row");
-
-  const item = document.createElement("div");
-  item.setAttribute("class", "item");
-
-  const itemContent = document.createElement("span");
-  itemContent.setAttribute("class", "item-content");
-  itemContent.innerHTML = inputValue;
-
-  const itemDelete = document.createElement("button");
-  itemDelete.setAttribute("class", "item-delete");
-
-  const deleteIcon = document.createElement("i");
-  deleteIcon.setAttribute("class", "fas fa-trash-alt");
-  itemDelete.addEventListener("click", () => {
-    items.removeChild(itemRow);
-  });
-
-  itemDelete.appendChild(deleteIcon);
-  item.appendChild(itemContent);
-  item.appendChild(itemDelete);
-  itemRow.appendChild(item);
+  itemRow.setAttribute("data-id", id);
+  itemRow.innerHTML = `
+    <div class="item">
+      <span class="item-content">${inputValue}</span>
+      <button type="button" class="item-delete">
+        <i class="fas fa-trash-alt" data-id="${id}"></i>
+      </button>
+    </div>  
+  `;
+  id++;
   return itemRow;
 };
 
@@ -46,6 +36,14 @@ const addList = () => {
   input.value = "";
   input.focus();
 };
+
+items.addEventListener("click", (event) => {
+  const id = event.target.dataset.id;
+  if (id) {
+    const toBeDeleted = document.querySelector(`.item-row[data-id="${id}"]`);
+    toBeDeleted.remove();
+  }
+});
 
 plusButton.addEventListener("click", addList); // mouse click
 input.addEventListener("keypress", (event) => {
