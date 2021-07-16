@@ -41,6 +41,7 @@ const addList = () => {
 
   const newList = createList(inputValue);
   items.appendChild(newList);
+  newList.scrollIntoView({ block: "center" });
 
   input.value = "";
   input.focus();
