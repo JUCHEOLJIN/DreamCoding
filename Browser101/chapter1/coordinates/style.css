@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: #000;
+  height: 100vh;
+}
+
+.line {
+  position: absolute;
+  background-color: #fff;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.target {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tag {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  font-size: 36px;
+  transform: translate(30px, 30px);
+}

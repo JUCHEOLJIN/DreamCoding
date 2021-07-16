@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        background-color: thistle;
+      }
+
+      .special {
+        background-color: tomato;
+      }
+
+      .buttons {
+        position: fixed;
+        right: 0;
+        top: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <button type="button" class="scroll-by">Scroll by 100px(y)</button>
+      <button type="button" class="scroll-to">Scroll to 100px(y)</button>
+      <button type="button" class="scroll-into">Scroll into special</button>
+    </div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box special">12</div>
+    <div class="box">13</div>
+    <div class="box">14</div>
+    <div class="box">15</div>
+    <script>
+      const scrollBy = document.querySelector(".scroll-by");
+      const scrollTo = document.querySelector(".scroll-to");
+      const scrollInto = document.querySelector(".scroll-into");
+      const special = document.querySelector(".special");
+      function getPosition(special) {
+        const rect = special.getBoundingClientRect();
+        return {
+          left: rect.left + window.scrollX,
+          top: rect.top + window.scrollY,
+        };
+      }
+      scrollBy.addEventListener("click", (event) => {
+        window.scrollBy(0, 100);
+      });
+      scrollTo.addEventListener("click", (event) => {
+        window.scroll({
+          top: 100,
+        });
+      });
+      scrollInto.addEventListener("click", (event) => {
+        // window.scrollTo(0, getPosition(special).top);
+        window.scrollTo(0, special.offsetTop); // offsetTop 도 가능
+        // special.scrollIntoview(); 로 가능하다.
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: black;
+}
+
+.target {
+  position: absolute;
+  z-index: 1000;
+  color: #fff;
+}
+
+.target2 {
+  position: absolute;
+  z-index: 1000;
+  color: #fff;
+}
