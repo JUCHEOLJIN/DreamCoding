@@ -19,6 +19,7 @@ function App() {
       .then((result) => setVideos(result.items))
       .catch((error) => console.log("error", error));
   }, []);
+  console.log(videos);
   return <VideoList videos={videos} />;
 }
 
