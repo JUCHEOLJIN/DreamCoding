@@ -51,10 +51,6 @@ class App extends Component {
       }
       return habit;
     });
-    // habits.map((habit) => {
-    //   habit.count = 0;
-    //   return habit;
-    // });
     this.setState({ habits });
   };
 
