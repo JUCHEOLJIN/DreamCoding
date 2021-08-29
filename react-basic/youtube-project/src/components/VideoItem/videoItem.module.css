@@ -1,7 +1,14 @@
 .container {
-  width: 50%;
   height: 100%;
   padding: 0.2em;
+}
+
+.container.grid {
+  width: 50%;
+}
+
+.container.list {
+  width: 100%;
 }
 
 .video {
@@ -21,7 +28,7 @@
 }
 
 .metadata {
-  margint-left: 0.2em;
+  margin-left: 0.2em;
 }
 
 .title,
